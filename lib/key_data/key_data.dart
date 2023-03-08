@@ -1,1 +1,1 @@
-// TODO Implement this library.
+String uploadurl = "http://___/file_upload.php";

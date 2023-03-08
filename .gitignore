@@ -9,7 +9,7 @@
 .history
 .svn/
 migrate_working_dir/
-lib/keydata/
+lib/key_data/
 
 # IntelliJ related
 *.iml
