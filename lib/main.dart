@@ -4,6 +4,7 @@ import 'package:dio/dio.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:path/path.dart';
+import 'upl_ip.dart' as upl_ip;
 
 void main() => runApp(MyApp());
 
@@ -63,7 +64,7 @@ class _CustomFilePicker extends State<CustomFilePicker> {
   }
 
   uploadFile() async {
-    String uploadurl = "http://_____/file_upload.php";
+    String uploadurl = "http://${upl_ip.ip}/file_upload.php";
 
     //dont use http://localhost , because emulator don't get that address
     //insted use your local IP address or use live URL
