@@ -10,6 +10,7 @@
 .svn/
 migrate_working_dir/
 lib/key_data/
+lib/key_data
 
 # IntelliJ related
 *.iml
