@@ -1,16 +1,31 @@
-# fileupltest2
+php used:
 
-A new Flutter project.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+```
+<?php
+error_reporting(E_ERROR | E_PARSE);
+// Response object structure
+$response = new stdClass;
+$response->status = null;
+$response->message = null;
+// Uploading file
+$destination_dir = "upload/";
+$base_filename = basename($_FILES["file"]["name"]);
+$target_file = $destination_dir . $base_filename;
+if(!$_FILES["file"]["error"])
+{
+   if (move_uploaded_file($_FILES["file"]["tmp_name"], $target_file)) {        
+       $response->status = true;
+       $response->message = "File uploaded successfully";
+   } else {
+       $response->status = false;
+       $response->message = "File uploading failed";
+   }    
+} 
+else
+{
+   $response->status = false;
+   $response->message = "File uploading failed";
+}
+header('Content-Type: application/json');
+echo json_encode($response);
+```
